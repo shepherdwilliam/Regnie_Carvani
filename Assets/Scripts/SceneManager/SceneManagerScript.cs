@@ -4,12 +4,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public interface ICustomMessageTarget : IEventSystemHandler{
-	// メッセージングシステムを通して呼び出される関数
-	void Battle();
-	void Summon();
-}
-
 public class SceneManagerScript : MonoBehaviour {
 
 	// Use this for initialization

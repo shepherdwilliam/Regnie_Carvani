@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\GetCard\DrawScript.cs" />
+     <Compile Include="Assets\Scripts\GetInfo\GetCardInfo.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerResource.cs" />
      <Compile Include="Assets\Scripts\SceneManager\SceneManagerScript.cs" />
      <None Include="Assets\GameData\XML_Lib\CharaProfiles.xml" />
