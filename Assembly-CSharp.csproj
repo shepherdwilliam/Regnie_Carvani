@@ -49,7 +49,9 @@
      <Compile Include="Assets\Scripts\GetCard\DrawScript.cs" />
      <Compile Include="Assets\Scripts\GetInfo\GetCardInfo.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerResource.cs" />
+     <Compile Include="Assets\Scripts\SceneManager\GameLoader.cs" />
      <Compile Include="Assets\Scripts\SceneManager\SceneManagerScript.cs" />
+     <Compile Include="Assets\Scripts\Welcome.cs" />
      <None Include="Assets\GameData\XML_Lib\CharaProfiles.xml" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>C:/Users/Supervisor/Documents/Creative_Project/Unity/Projects/Unity Project Cards 1.0/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
