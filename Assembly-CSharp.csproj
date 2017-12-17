@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{7BD24895-B516-6B1A-FA8A-936C3008CE5E}</ProjectGuid>
+    <ProjectGuid>{C1D4B25D-2113-92A6-A35E-7DF9554EC0F9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -55,7 +55,7 @@
      <Compile Include="Assets\Scripts\Welcome.cs" />
      <None Include="Assets\GameData\XML_Lib\CharaProfiles.xml" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>C:/Users/Supervisor/Documents/Creative_Project/Unity/Projects/Unity Project Cards 1.0/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>C:/Users/Supervisor/Documents/Creative_Project/Unity/Projects/Regnie_Carvani/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

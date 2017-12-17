@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-class Character{
+public class Character{
 	public int id;    // ID
 	public string name;     // 名前
 	public string displayName; // 表示用の名前
@@ -15,6 +15,7 @@ class Character{
 public class CardGroupManager : MonoBehaviour {
 
 	public Character[] playerCards = new Character[6];	//プレイヤーの手札
+
 	public Character[] enemyCards = new Character[6];	//敵の手札
 
 	void Start () {
