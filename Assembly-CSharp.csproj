@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Battle\BattleManager.cs" />
      <Compile Include="Assets\Scripts\Battle\CardGroupManager.cs" />
      <Compile Include="Assets\Scripts\GetCard\DrawScript.cs" />
      <Compile Include="Assets\Scripts\GetInfo\GetCardInfo.cs" />

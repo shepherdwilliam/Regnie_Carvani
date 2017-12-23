@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Character{
-	public int id;    // ID
-	public string name;     // 名前
-	public string displayName; // 表示用の名前
+	public int id;	// ID
+	public string name;	// 名前
+	public string displayName;	// 表示用の名前
 	public string description;
 	public string nation;
 	public int hp;
@@ -38,6 +38,10 @@ public class CardGroupManager : MonoBehaviour {
 	}
 
 	void Battle (){
+		
+	}
+
+	void GetCharacterCardInfo (int id){
 		
 	}
 }
