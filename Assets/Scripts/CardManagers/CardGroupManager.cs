@@ -28,20 +28,9 @@ public class CardGroupManager : MonoBehaviour {
 		for(int i=0; i<enemyCards.Length; ++i){
 			enemyCards[i].id = 0;	//ダミー
 		}
-
-		//Battle開始
-		Battle ();
 	}
 
 	void Update () {
-		
-	}
-
-	void Battle (){
-		
-	}
-
-	void GetCharacterCardInfo (int id){
 		
 	}
 }
