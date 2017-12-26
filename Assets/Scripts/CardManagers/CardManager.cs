@@ -17,8 +17,9 @@ public class Character{
 
 	public Character(int pid) {
 		id = pid;
-		CardLoader c = CardLoader.GetComponent<CardLoader>;
-		string[] str = c.GetCsvData ();
+		GameObject c = GameObject.Find ("CardLoader");
+		CardLoader cl = c.GetComponent<CardLoader>;
+		string[] str = cl.GetCharaSerialData (pid);
 		name = str [1];
 		displayName = str [2];
 		description = str [3];
