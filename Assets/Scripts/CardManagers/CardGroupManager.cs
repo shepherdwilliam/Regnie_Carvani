@@ -2,15 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character{
-	public int id;	// ID
-	public string name;	// 名前
-	public string displayName;	// 表示用の名前
-	public string description;
-	public string nation;
-	public int hp;
-	public int ap;
-}
+
 
 public class CardGroupManager : MonoBehaviour {
 
