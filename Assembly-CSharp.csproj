@@ -55,7 +55,6 @@
      <Compile Include="Assets\Scripts\SceneManager\GameLoader.cs" />
      <Compile Include="Assets\Scripts\SceneManager\SceneTransitionManager.cs" />
      <Compile Include="Assets\Scripts\Welcome\Welcome.cs" />
-     <None Include="Assets\GameData\XML_Lib\CharaProfiles.xml" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>C:/Users/Supervisor/Documents/Creative_Project/Unity/Projects/Regnie_Carvani/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
