@@ -31,42 +31,54 @@ public class CardLoader : MonoBehaviour {
 		csvLines = csvStr.Split('\n'); //改行で区切る
 		int i = 0;
 		int nullcount =0;
+		for (int l = 0; l < csvLines.Length; l ++) {
+			Debug.Log("CardLoader : csvLines[" + l + "]\n" + csvLines[l]);
+		}
 
-		try {
-			Debug.Log(csvLines[0]+"\n"+csvLines[1]);
-		}
-		catch {
-			Debug.Log("CardLoader\nCSV is null");
-		}
+		bool[] lines =new bool[1024];
 
 		while (i + nullcount < csvLines.Length) {
-			// "//"でエスケープ
 			Debug.Log ("CardLoader\nescaping...");
+			//コメントか否か
 			if (csvLines[i+nullcount].Split(',')[0].StartsWith("//")) {
+				Debug.Log ("CardLoader ESCAPED\ncsvLines[" + (i + nullcount) + "]");
+				Debug.Log ("CardLoader\n" + csvLines[i+nullcount].Split(',')[0]);
+				lines [i + nullcount] = false; //行はコメント
 				nullcount ++;
-				Debug.Log ("CardLoader\nescaped - nullcount : " + nullcount);
-				Debug.Log (csvLines[i+nullcount].Split(',')[0]);
 				continue;
 			}
+			//ファイルの最後
 			if (csvLines[i+nullcount].Split(',')[0].StartsWith("%%")) {
-				Debug.Log ("CardLoader\nEnd of File");
-				Debug.Log (csvLines[i].Split(',')[0]);
+				Debug.Log ("CardLoader\nEnd of File : " + csvLines[i+nullcount].Split(',')[0]);
+				lines [i + nullcount] = false; //行はコメント
 				break;
 			}
-			//空白でない行が実行される
-			//ここら辺に
-			csvData[i] = new string[11];
-			Debug.Log ("CardLoader\ncsvLines" + csvLines[i]);
-			csvData[i] = csvLines[i].Split (',');
-			Debug.Log ("CardLoader\ncsvData[j][0]" + csvData[i][0]);
+
+			Debug.Log ("CardLoader\nline " + (i + nullcount) + " is not a comment");
+			Debug.Log ("CardLoader\ncsvLines[" + (i + nullcount) + "] is " + csvLines[i + nullcount]);
+			lines [i + nullcount] = true; //行はコメントではない
 			i++;
 		}
+
 		csvData = new string[i][];
 
-		for (int j = 0; j < i;j++) {
-			
+		for (int j = 0; j < i + nullcount; j++) {
+			Debug.Log ("CardLoader\nline " + j + " is " + lines[j]);
+			if (lines[j] == true){
+				Debug.Log ("CardLoader\nAssert");
+				csvData[j] = new string[11];
+				csvData[j] = csvLines[j].Split (',');
+				Debug.Log ("CardLoader\ncsvLines : " + csvLines[j]);
+				Debug.Log ("CardLoader\ncsvData[j][0] : " + csvData[j][0]);
+			}
 		}
-		Debug.Log ("CardLoader\n" + csvData[1][0] + csvData[1][1] + csvData[1][2] + csvData[1][3]);
+
+		try{
+			Debug.Log ("CardLoader\n" + csvData[0][0]);
+		}
+		catch{
+			Debug.LogWarning ("CardLoader\ncsvData is null");
+		}
 	}
 
 	public string[][] GetCsvData () {
