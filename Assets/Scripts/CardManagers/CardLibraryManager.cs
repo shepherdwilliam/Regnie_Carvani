@@ -25,15 +25,19 @@ public class CardLibraryManager : MonoBehaviour {
 		
 		GameObject c = GameObject.Find ("CardLoader");
 		CardLoader cl = c.GetComponent<CardLoader> ();
+		GameObject gc = GameObject.Find ("Character");
+		Character ch = gc.GetComponent<Character> ();
 		int n = cl.GetNumberOfChara();
-		Debug.Log ("CardLibraryManager\nn : "+n);
+		Debug.Log ("CardLibraryManager\nn : " + n);
 
 		for (int i = 0; i < n; i++) {
-			Debug.Log ("CardLibraryManager\nloop : "+i);
-			Debug.Log ("CardLibraryManager\n"+cl.GetCharaSerialData(i));
+			Debug.Log ("CardLibraryManager\n" + cl.GetCharaSerialData(i));
 			string[] stch = cl.GetCharaSerialData (i);
-			Character ch = new Character[stch];
+			Debug.Log ("CardLibraryManager\n" + i + "回目");
+			ch.test();
+			ch.Setup (stch);
 			publicCardLibrary.Add (ch);
+			Debug.Log ("CardLibraryManager\n" + publicCardLibrary[i].displayName);
 		}
 	}
 }

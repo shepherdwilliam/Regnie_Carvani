@@ -37,59 +37,10 @@ public class CardLoader : MonoBehaviour {
 		csvStr = Encoding.UTF8.GetString (csvFile.bytes); //ASCIIに変換
 		csvLines = csvStr.Split('\n'); //改行で区切る
 
-		/*
-		int i = 0;
-		int nullcount =0;
-		for (int l = 0; l < csvLines.Length; l ++) {
-			Debug.Log("CardLoader : csvLines[" + l + "]\n" + csvLines[l]);
-		}
-
-
-		bool[] lines =new bool[csvLines.Length];
-
-		while (i + nullcount < csvLines.Length) {
-			Debug.Log ("CardLoader\nescaping...");
-			//コメントか否か
-			if (csvLines[i+nullcount].Split(',')[0].StartsWith("//")) {
-				Debug.Log ("CardLoader ESCAPED\ncsvLines[" + (i + nullcount) + "]");
-				Debug.Log ("CardLoader\n" + csvLines[i+nullcount].Split(',')[0]);
-				lines [i + nullcount] = false; //行はコメント
-				nullcount ++;
-				continue;
-			}
-			//ファイルの最後
-			if (csvLines[i+nullcount].Split(',')[0].StartsWith("%%")) {
-				Debug.Log ("CardLoader\nEnd of File : " + csvLines[i+nullcount].Split(',')[0]);
-				lines [i + nullcount] = false; //行はコメント
-				break;
-			}
-
-			Debug.Log ("CardLoader\nline " + (i + nullcount) + " is not a comment");
-			Debug.Log ("CardLoader\ncsvLines[" + (i + nullcount) + "] is " + csvLines[i + nullcount]);
-			lines [i + nullcount] = true; //行はコメントではない
-			i++;
-		}
-
-		csvData = new string[i][];
-
-
-		for (int j = 0; j < i + nullcount; j++) {
-			Debug.Log ("CardLoader\nline " + j + " is " + lines[j]);
-			if (lines[j] == true){
-				Debug.Log ("CardLoader\nAssert");
-				csvData[j] = new string[10];
-				csvData[j] = csvLines[j].Split (',');
-				Debug.Log ("CardLoader\ncsvLines : " + csvLines[j]);
-				Debug.Log ("CardLoader\ncsvData[j][0] : " + csvData[j][0]);
-			}
-		}
-		*/
 	}
 
 	//キャラクター単体のString[]を返す
 	public string[] GetCharaSerialData (int id) {
-		Debug.Log ("CardLoader\nGCSD id : " + id);
-		Debug.Log ("CardLoader\nGCSD lines name : " + csvLines[id].Split (',')[1]);
 		return csvLines[id].Split (',');
 	}
 
