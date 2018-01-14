@@ -5,10 +5,17 @@ using System.Text;
 
 public class CardLoader : MonoBehaviour {
 
+	/* CSV 仕様
+	//Character Data Csv,,,,,,,,,,
+	//id,//name,//display name,//description,//nation,//def hp,//max hp,//def ap,//max ap,//hp,//ap
+	%%,,,,,,,,,,
+	*/
+
 	TextAsset csvFile; // CSVファイル
 	string csvStr; //CSVString
-	string[] csvLines; //行ごとの配列
-	public string[][]  csvData; //完成データ[i][j] i:キャラクター、j:各値
+	public string[] csvLines; //行ごとの配列 .Length がキャラクター数
+
+	//public string[][]  csvData; //完成データ[i][j] i:キャラクター、j:各値
 
 	// Use this for initialization
 	void Start () {
@@ -29,13 +36,16 @@ public class CardLoader : MonoBehaviour {
 		csvFile = Resources.Load("charadata") as TextAsset; //リソースからロード
 		csvStr = Encoding.UTF8.GetString (csvFile.bytes); //ASCIIに変換
 		csvLines = csvStr.Split('\n'); //改行で区切る
+
+		/*
 		int i = 0;
 		int nullcount =0;
 		for (int l = 0; l < csvLines.Length; l ++) {
 			Debug.Log("CardLoader : csvLines[" + l + "]\n" + csvLines[l]);
 		}
 
-		bool[] lines =new bool[1024];
+
+		bool[] lines =new bool[csvLines.Length];
 
 		while (i + nullcount < csvLines.Length) {
 			Debug.Log ("CardLoader\nescaping...");
@@ -62,35 +72,28 @@ public class CardLoader : MonoBehaviour {
 
 		csvData = new string[i][];
 
+
 		for (int j = 0; j < i + nullcount; j++) {
 			Debug.Log ("CardLoader\nline " + j + " is " + lines[j]);
 			if (lines[j] == true){
 				Debug.Log ("CardLoader\nAssert");
-				csvData[j] = new string[11];
+				csvData[j] = new string[10];
 				csvData[j] = csvLines[j].Split (',');
 				Debug.Log ("CardLoader\ncsvLines : " + csvLines[j]);
 				Debug.Log ("CardLoader\ncsvData[j][0] : " + csvData[j][0]);
 			}
 		}
-
-		try{
-			Debug.Log ("CardLoader\n" + csvData[0][0]);
-		}
-		catch{
-			Debug.LogWarning ("CardLoader\ncsvData is null");
-		}
+		*/
 	}
 
-	public string[][] GetCsvData () {
-		return csvData;
-	}
-
-
-	//キャラクター単体のStringを返す
+	//キャラクター単体のString[]を返す
 	public string[] GetCharaSerialData (int id) {
-		string[] str = new string[11];
-		Debug.Log ("CardLoader:GetCharaSerialData" + csvData[id][0]);
-		str = csvData[id];
-		return str;
+		Debug.Log ("CardLoader\nGCSD id : " + id);
+		Debug.Log ("CardLoader\nGCSD lines name : " + csvLines[id].Split (',')[1]);
+		return csvLines[id].Split (',');
+	}
+
+	public int GetNumberOfChara () {
+		return csvLines.Length;
 	}
 }

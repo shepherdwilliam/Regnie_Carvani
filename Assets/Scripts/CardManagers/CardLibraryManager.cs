@@ -17,13 +17,23 @@ public class CardLibraryManager : MonoBehaviour {
 
 	}
 
+	void test () {
+		
+	}
+
 	public void CreateLibrary (){
-		int n = 1;
+		
 		GameObject c = GameObject.Find ("CardLoader");
 		CardLoader cl = c.GetComponent<CardLoader> ();
+		int n = cl.GetNumberOfChara();
+		Debug.Log ("CardLibraryManager\nn : "+n);
+
 		for (int i = 0; i < n; i++) {
-			publicCardLibrary.Add (new Character(cl.GetCharaSerialData(i)));
+			Debug.Log ("CardLibraryManager\nloop : "+i);
 			Debug.Log ("CardLibraryManager\n"+cl.GetCharaSerialData(i));
+			string[] stch = cl.GetCharaSerialData (i);
+			Character ch = new Character[stch];
+			publicCardLibrary.Add (ch);
 		}
 	}
 }

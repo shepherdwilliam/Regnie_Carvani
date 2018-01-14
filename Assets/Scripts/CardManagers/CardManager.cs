@@ -14,9 +14,6 @@ public class Character{
 		hp = int.Parse(str[7]);
 		ap = int.Parse(str[8]);
 	}
-	public Character(int pid) {
-		id = pid;
-	}
 
 	public int id;	// ID
 	public string name;	// 名前
