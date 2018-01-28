@@ -5,11 +5,12 @@ using UnityEngine;
 public class CardLibraryManager : MonoBehaviour {
 
 	public List<Character> publicCardLibrary;
-	public Character[] playerCardLibrary;
+	public List<Character> playerCardLibrary;
 
 	// Use this for initialization
 	void Start () {
 		publicCardLibrary = new List<Character> ();
+		playerCardLibrary = new List<Character> ();
 	}
 	
 	// Update is called once per frame
@@ -17,8 +18,10 @@ public class CardLibraryManager : MonoBehaviour {
 
 	}
 
-	void test () {
-		
+	public Character GetCharacterById (int id) {
+        Character c;
+        c = publicCardLibrary[id];
+        return c;
 	}
 
 	public void CreateLibrary (){
