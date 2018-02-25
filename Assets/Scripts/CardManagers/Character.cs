@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System.Xml;
-using System.IO;
+﻿using UnityEngine;
 
 public class Character : MonoBehaviour {
 
@@ -15,9 +11,10 @@ public class Character : MonoBehaviour {
 	public int ap; // AP
 	public bool playerCard;
 
-	public void test () {
+	public void Test () {
 		Debug.Log ("Character : test\n");
 	}
+
 	public void Setup (string[] str) {
 		id = int.Parse(str[0]);
 		name = str [1];
@@ -26,12 +23,9 @@ public class Character : MonoBehaviour {
 		nation = str [4];
 		hp = int.Parse(str[7]);
 		ap = int.Parse(str[8]);
-		/*if (str [12] == "1") {
-			//HAVEIT
-			playerCard = true;
-		} else {
-			playerCard = false;
-		}*/
+		/*
+         *  持っているかいないかの判定を実装
+         */
 		Debug.Log ("Character : Setup\nid : " + id);
 	}
 }

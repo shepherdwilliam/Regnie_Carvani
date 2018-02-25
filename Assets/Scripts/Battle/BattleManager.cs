@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BattleManager : MonoBehaviour {
 
@@ -19,35 +17,46 @@ public class BattleManager : MonoBehaviour {
         //キャラ入れ
         Character[] playerCards = new Character[6];
         Character[] enemyCards = new Character[6];
-        GameObject c = GameObject.Find("CardLibraryManager");
+        GameObject loader = GameObject.Find(name: "CardLoader");
+        CardLoader cardLoader = loader.GetComponent<CardLoader>();
+        cardLoader.Initialize();
+        GameObject c = GameObject.Find(name: "CardLibraryManager");
         CardLibraryManager manager = c.GetComponent<CardLibraryManager>();
-        for (int i = 0; i <= playerCards.Length; i++) {
-            playerCards[i] = manager.GetCharacterById(0);
-            playerCards[i] = manager.GetCharacterById(0);
+        Debug.Log("PlayerCardsLength\n" + playerCards.Length);
+        for (int i = 0; i < playerCards.Length; i++) {
+            playerCards[i] = manager.GetCharacterById(id: 0);//できてる？
+            enemyCards[i] = manager.GetCharacterById(id: 0);
+            Debug.Log("Playerの" + i + "人目のカード\n" + playerCards[i].name);
+            Debug.Log("Enemyの" + i + "人目のカード\n" + enemyCards[i].name);
         }
-        //
-        BattleGroup battleGroup = new BattleGroup();
-        battleGroup = BattleElementFunction(playerCards, enemyCards);
+
         
-        for (int i = 0; i <= battleGroup.playerCards.Length; i++){
-            Debug.Log("Battle" + battleGroup.playerCards[i].name);
+        BattleGroup battleGroup = new BattleGroup();
+        battleGroup = BattleElementFunction(playerCards, enemyCards);//1
+        battleGroup = BattleElementFunction(enemyCards, playerCards);//2
+
+        for (int i = 0; i < battleGroup.defender.Length; i++) {
+            Debug.Log("Battle" + battleGroup.defender[i].name);
+        }
+        for (int i = 0; i < battleGroup.attacker.Length; i++) {
+            Debug.Log("Battle" + battleGroup.attacker[i].name);
         }
     }
 
 	//character[] 2
-	BattleGroup BattleElementFunction (Character[] playerCards, Character[] enemyCards) {
+	BattleGroup BattleElementFunction (Character[] defenderCards, Character[] attackerCards) {
 		//各キャラクターの計算
-		for (int i=0; i <= 6; i++){
-			playerCards [i].hp = playerCards [i].hp - enemyCards [i].ap;
+		for (int i=0; i < 6; i++){
+            defenderCards[i].hp = defenderCards[i].hp - attackerCards[i].ap;
 		}
-        BattleGroup battleGroup = new BattleGroup();
-        battleGroup.playerCards.CopyTo (playerCards, 0);
-        battleGroup.enemyCards.CopyTo (enemyCards, 0);
-        return battleGroup;
+        BattleGroup battleGroupCards = new BattleGroup();
+        defenderCards.CopyTo (array: battleGroupCards.defender, index: 0x0);
+        attackerCards.CopyTo (array: battleGroupCards.attacker, index: 0x0);
+        return battleGroupCards;
     }
 }
 
 public struct BattleGroup{
-	public Character[] playerCards;
-	public Character[] enemyCards;
+	public Character[] defender;
+	public Character[] attacker;
 }

@@ -19,12 +19,7 @@ public class CardLoader : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log ("CardLoader\ninitializing...");
-		Load ();
-		GameObject c = GameObject.Find ("CardLibraryManager");
-		CardLibraryManager cl = c.GetComponent<CardLibraryManager> ();
-		cl.CreateLibrary ();
-		Debug.Log ("CardLoader\ncomplete");
+		
 	}
 	
 	// Update is called once per frame
@@ -47,4 +42,13 @@ public class CardLoader : MonoBehaviour {
 	public int GetNumberOfChara () {
 		return csvLines.Length;
 	}
+
+    public void Initialize(){
+        Debug.Log("CardLoader\ninitializing...");
+        Load();
+        GameObject c = GameObject.Find("CardLibraryManager");
+        CardLibraryManager cl = c.GetComponent<CardLibraryManager>();
+        cl.CreateLibrary();
+        Debug.Log("CardLoader\ncomplete");
+    }
 }
