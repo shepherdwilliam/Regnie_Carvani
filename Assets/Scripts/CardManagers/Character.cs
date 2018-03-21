@@ -12,7 +12,7 @@ public class Character : MonoBehaviour {
 	public bool playerCard;
 
 	public void Test () {
-		Debug.Log ("Character : test\n");
+		Debug.Log ("Character\nキャラクターのテスト");
 	}
 
 	public void Setup (string[] str) {
@@ -26,6 +26,5 @@ public class Character : MonoBehaviour {
 		/*
          *  持っているかいないかの判定を実装
          */
-		Debug.Log ("Character : Setup\nid : " + id);
 	}
 }

@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneTransitionManager : MonoBehaviour {
@@ -17,22 +14,22 @@ public class SceneTransitionManager : MonoBehaviour {
 	}
 
 	public void MessageBattle(){
-		Debug.Log ("Message (Battle) received");
+		Debug.Log ("SceneTransitionManager\n(Battle)のメッセージを受け取りました");
 		SceneManager.LoadScene ("Battle");
 	}
 
 	public void MessageSummon(){
-		Debug.Log ("Message (Summon) received");
+		Debug.Log ("SceneTransitionManager\n(Summon)のメッセージを受け取りました");
 		SceneManager.LoadScene ("Summon");
 	}
 
 	public void MessageDictionary(){
-		Debug.Log ("Message (Dictionary) received");
+		Debug.Log ("SceneTransitionManager\n(Dictionary)のメッセージを受け取りました");
 		SceneManager.LoadScene ("Dictionary");
 	}
 
 	public void MessageStore(){
-		Debug.Log ("Message (Store) received");
+		Debug.Log ("SceneTransitionManager\n(Store)のメッセージを受け取りました");
 		SceneManager.LoadScene ("Store");
 	}
 }
