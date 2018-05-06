@@ -5,7 +5,7 @@ using UnityEngine;
 public class CardLibraryManager : MonoBehaviour {
 
 	static public List<Character> publicCardLibrary;
-	public List<Character> playerCardLibrary;
+	static public List<Character> playerCardLibrary;
 
 	// Use this for initialization
 	void Start () {
@@ -21,9 +21,11 @@ public class CardLibraryManager : MonoBehaviour {
 	public Character GetCharacterById (int id) {
         Character c;
         //c = GetComponent<Character>();  
-        Debug.Log("GetCharaById\n" + publicCardLibrary.Count);
-        c = null;
-        c = publicCardLibrary[id];//取得!ここでバグってるのでは？
+        Debug.Log("GetCharaById\nキャラクター数" + publicCardLibrary.Count);
+        Debug.Log("GetCharaById\n0 : " + publicCardLibrary[0].displayName);
+        Debug.Log("GetCharaById\n1 : " + publicCardLibrary[1].displayName);
+        //c = null;
+        c = publicCardLibrary[id];
         return c;
 	}
 
